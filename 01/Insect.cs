@@ -1,0 +1,4 @@
+class Insect
+{
+    double WingNumber; 
+}
