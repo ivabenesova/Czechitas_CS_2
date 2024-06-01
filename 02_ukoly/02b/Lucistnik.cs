@@ -1,26 +1,36 @@
-namespace _02b;
-
-partial class Program
+﻿namespace _02b
 {
-    class Lucistnik
+    partial class Program
     {
-        public int pocetSipu;
+        class Lucistnik
+        {
+            public int pocetSipu;
 
-        public Lucistnik(int PocetSipu = 10)
-        {
-            pocetSipu = PocetSipu;
-        }
-        public void Vystrel()
-        {
-            if (pocetSipu > 0)
+            public Lucistnik(int PocetSipu = 10)
             {
-            Console.WriteLine("Vždy se strefím přesně doporostřed!");
+                if (PocetSipu > 0)
+                {
+                    pocetSipu = PocetSipu;
+                }
+                else
+                {
+                    pocetSipu = 1;
+                    Console.WriteLine("Není možné vytvořit lučištníka se záporným počtem šípů, dostane jeden.");
+                }
+
             }
-            else
+            public void Vystrel()
             {
-                Console.WriteLine("Nemám šipy!");
+                if (pocetSipu > 0)
+                {
+                    Console.WriteLine("Vždy se strefím přesně doporostřed!");
+                }
+                else
+                {
+                    Console.WriteLine("Nemám šipy!");
+                }
+                pocetSipu--;
             }
-            pocetSipu --;
         }
     }
 }

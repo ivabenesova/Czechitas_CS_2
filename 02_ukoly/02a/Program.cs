@@ -1,64 +1,71 @@
-﻿using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+﻿namespace _02a
 
-namespace _02a;
+
 // Procvičení základů
 // =====================
 
 // 1. Napište program, který se zeptá na dvě čísla a zobrazí jejich součet.
 
-class Program
 {
-    static void Main(string[] args)
+    class Program
     {
-        static double ReadAndValidateDouble()
+        static void Main(string[] args)
         {
-            bool isNumber = false;
-            double Number = 0;
-            while(!isNumber)
+            static double ReadAndValidateDouble()
             {
-            Console.WriteLine("Zadej číslo:");
-            isNumber= double.TryParse(Console.ReadLine(), out Number);
-            if (!isNumber)
+                bool isNumber = false;
+                double number = 0;
+                while (!isNumber)
+                {
+                    Console.WriteLine("Zadej číslo:");
+                    isNumber = double.TryParse(Console.ReadLine(), out number);
+                    if (!isNumber)
+                    {
+                        Console.WriteLine("Neplatný vstup.");
+                    }
+                }
+                return number;
+            }
+
+            static double Add(double a, double b)
             {
-                Console.WriteLine("Neplatný vstup.");
+                return a + b;
             }
-            }
-            return Number;
-        }
 
-        static double Add(double a, double b)
-        {
-            return a + b;
-        }
+            double prvniCislo = ReadAndValidateDouble();
+            double druheCislo = ReadAndValidateDouble();
+            Console.WriteLine(Add(prvniCislo, druheCislo));
 
-        double prvniCislo = ReadAndValidateDouble();
-        double druheCislo = ReadAndValidateDouble();
-        Console.WriteLine(Add(prvniCislo, druheCislo));
 
-        // 2. Napište program, který se zeptá na počet hvězdiček a potom je v cyklu zobrazí na konzoli.
-        static int ReadAndValidateInt()
-        {
-            bool isNumber = false;
-            int Number = 0;
-            while(!isNumber)
+            // 2. Napište program, který se zeptá na počet hvězdiček a potom je v cyklu zobrazí na konzoli.
+
+            static int ReadAndValidateInt()
             {
-            Console.WriteLine("Zadej počet hvězdiček:");
-            isNumber= int.TryParse(Console.ReadLine(), out Number);
-            if (!isNumber)
-            {
-                Console.WriteLine("Neplatný vstup.");
+                bool isNumber = false;
+                int number = 0;
+                while (!isNumber)
+                {
+                    Console.WriteLine("Zadej počet hvězdiček:");
+                    isNumber = int.TryParse(Console.ReadLine(), out number);
+                    if (!isNumber)
+                    {
+                        Console.WriteLine("Neplatný vstup.");
+                    }
+                }
+                return number;
             }
-            }
-            return Number;
-        }
 
-        int pocetHvezd = ReadAndValidateInt();
-        for (int i = 0; i < pocetHvezd; i++)
-        {
-            Console.WriteLine("*");
+            int pocetHvezd = ReadAndValidateInt();
+            for (int i = 0; i < pocetHvezd; i++)
+            {
+                Console.WriteLine("*");
+            }
         }
     }
 }
+
+
+
+
 
 
