@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace project;
 
 
-internal class Program
+class Program
 {
     static void Main(string[] args)
     {
+        string imagePath = "C:\\Users\\iva.benesova\\dev\\czechitas_2\\Czechitas_CS_2\\project\\project\\Resources\\kingdomino.jpg";
+
+        ImageProcessing imageProcessor = new ImageProcessing(imagePath);
+
         int[,] kingdomLandscapesArray = new int[5, 5]
         {
             {1,1,2,2,3},
