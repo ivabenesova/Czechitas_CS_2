@@ -1,0 +1,13 @@
+Zadání:
+
+Vytvořit aplikaci pro výpočet skóre deskové hry Kingdomino.
+
+V této hře hráči vytváří z dominových kostek hrací pole, které má ve výsledku velikost 5*5 čtverečků různých krajin; 
+na některých polích jsou obrázky korun. Při výpočtu skóre se nejdříve identifikují oblasti 
+( vzájemně propojená políčka stejného druhu krajiny). Každá oblast přináší hráči tolik bodů, 
+kolik je počet polí této oblasti vynásobený počtem korun zobrazených na políčkách této oblasti. 
+Výsledné skóre je pak celkový součet těchto bodů.
+
+Cíl projektu je vytvoři aplikaci, která načte fotografii, 
+identifikuje jednotlivé krajiny a symboly korun a vypočte celkové skóre hráče. 
+V prvním kolem by šlo o konzolovou aplikaci, později bych ji ráda překlopila do WPF.

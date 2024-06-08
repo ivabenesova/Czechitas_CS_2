@@ -26,13 +26,16 @@ internal class Program
 
         Calculations kingdom1 = new Calculations(kingdomLandscapesArray, kingdomCrownsArray);
 
-        var resultingDict = kingdom1.FindClustersAndReturnDictWithClusterSizesAndCrownNumbers();
+        Dictionary<int, Tuple<int, int>> clusters = kingdom1.FindClustersAndReturnDictWithClusterSizesAndCrownNumbers();
 
-        foreach (KeyValuePair<int, Tuple<int, int>> item in resultingDict)
+        Console.WriteLine($"výsledek: {kingdom1.CalculateResult(clusters)}");
+
+        foreach (KeyValuePair<int, Tuple<int, int>> item in clusters)
         {
-            Console.WriteLine("id: " + item.Key + ", tiles: " + item.Value.Item1 + ", crowns: " + item.Value.Item2);
+            {
+                Console.WriteLine($"cluster no. {item.Key}: size {item.Value.Item1},  crowns {item.Value.Item2}");
+            }
         }
-
     }
 }
 
