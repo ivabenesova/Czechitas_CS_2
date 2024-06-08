@@ -27,6 +27,7 @@ internal class Program
 
         KingdominoGrid kingdom1 = new KingdominoGrid(kingdomLandscapesArray, kingdomCrownsArray);
 
+
         Dictionary<int, Tuple<int, int>> clusters = kingdom1.FindClustersAndReturnDictWithClusterSizesAndCrownNumbers();
 
         Console.WriteLine($"výsledek: {kingdom1.CalculateResult(clusters)}");
