@@ -32,7 +32,7 @@ class Program
             {0,0,0,0,1}
         };
 
-        KingdominoGrid kingdom1 = new KingdominoGrid(kingdomLandscapesArray, kingdomCrownsArray);ay, kingdomCrownsArray);
+        KingdominoGrid kingdom1 = new KingdominoGrid(kingdomLandscapesArray, kingdomCrownsArray);
 
 
         Dictionary<int, Tuple<int, int>> clusters = kingdom1.FindClustersAndReturnDictWithClusterSizesAndCrownNumbers();
