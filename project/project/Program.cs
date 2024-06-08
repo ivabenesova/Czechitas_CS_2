@@ -10,9 +10,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        string imagePath = "C:\\Users\\iva.benesova\\dev\\czechitas_2\\Czechitas_CS_2\\project\\project\\Resources\\kingdomino.jpg";
-
-        ImageProcessing imageProcessor = new ImageProcessing(imagePath);
+        string relativePath = @"..\..\..\Resources\kingdomino.jpg";
+        
+        ImageProcessing imageProcessor = new ImageProcessing(relativePath);
 
         int[,] kingdomLandscapesArray = new int[5, 5]
         {
