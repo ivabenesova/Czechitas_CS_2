@@ -13,44 +13,28 @@ class Program
 {
     static void Main(string[] args)
     {
-        string relativePath = @"..\..\..\Resources\kingdomino1.jpg";
+        //string relativePath = @"..\..\..\Resources\kingdomino1.jpg";
 
-        ImageProcessing imageProcessor = new ImageProcessing(relativePath);
+        //ImageProcessing imageProcessor = new ImageProcessing(relativePath);
 
-        imageProcessor.ImageTransformations();
-       
-
-        //int[,] kingdomLandscapesArray = new int[5, 5]
-        //{
-        //    {1,1,2,2,3},
-        //    {1,1,2,2,3},
-        //    {4,4,6,6,3},
-        //    {1,1,2,6,2},
-        //    {1,1,2,2,3}
-        //};
-
-        //int[,] kingdomCrownsArray = new int[5, 5]
-        //{
-        //    {0,0,1,1,0},
-        //    {0,0,0,0,1},
-        //    {1,1,0,1,1},
-        //    {0,0,1,1,0},
-        //    {0,0,0,0,1}
-        //};
-
-        //KingdominoGrid kingdom1 = new KingdominoGrid(kingdomLandscapesArray, kingdomCrownsArray);
+        //imageProcessor.ImageTransformations();
 
 
-        //Dictionary<int, Tuple<int, int>> clusters = kingdom1.FindClustersAndReturnDictWithClusterSizesAndCrownNumbers();
+        (int, int)[,] kingdomLandscapesArray = new (int, int)[5, 5]
+        {
+            { (1, 0), (1, 0), (2, 1), (2, 1), (3, 0) },
+            { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
+            { (4, 1), (4, 1), (6, 0), (6, 1), (3, 1) },
+            { (1, 0), (1, 0), (2, 1), (6, 1), (2, 0) },
+            { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
+        };
 
-        //Console.WriteLine($"výsledek: {kingdom1.CalculateResult(clusters)}");
 
-        //foreach (KeyValuePair<int, Tuple<int, int>> item in clusters)
-        //{
-        //    {
-        //        Console.WriteLine($"cluster no. {item.Key}: size {item.Value.Item1},  crowns {item.Value.Item2}");
-        //    }
-        //}
+
+        GridData kingdom1 = new GridData(kingdomLandscapesArray);
+        GridCalculator calculator = new GridCalculator(kingdom1);
+        calculator.CalculateResult();
+
     }
 }
 

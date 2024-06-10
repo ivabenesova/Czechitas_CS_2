@@ -53,24 +53,21 @@ internal class ImageProcessing
             Mat edges = new Mat();
             Cv2.Canny(blurred, edges, 50, 150);
 
-           
 
-           
-            /////////////////////////// chatgpt magic
+            ShowImage(edges);
 
-            // Zobrazení výsledného obrazu
-            Cv2.ImShow("Detected Rectangles", Image);
-            Cv2.WaitKey(0);
-            Cv2.DestroyAllWindows();
-
-            
             SaveImage(Image, "result.jpg");
         }
     }
 
-    
+    private void ShowImage(Mat imageToShow)
+    {
+        Cv2.ImShow("image", imageToShow);
+        Cv2.WaitKey(0);
+        Cv2.DestroyAllWindows();
+    }
 
-    public void SaveImage(Mat imageToSave, string imageName)
+    private void SaveImage(Mat imageToSave, string imageName)
     {   
         
         string outputPath = Path.Combine(@"..\..\..\output_images\", imageName);
