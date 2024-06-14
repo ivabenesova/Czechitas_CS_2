@@ -13,27 +13,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        //string relativePath = @"..\..\..\Resources\kingdomino1.jpg";
+        string relativePath = @"..\..\..\Resources\kingdomino.jpg";
 
-        //ImageProcessing imageProcessor = new ImageProcessing(relativePath);
+        DetectGridAndCropIt detector = new DetectGridAndCropIt(relativePath);
 
-        //imageProcessor.ImageTransformations();
+        detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
 
-
-        (int, int)[,] kingdomLandscapesArray = new (int, int)[5, 5]
+        foreach (var var in detector.SquareCorners)
         {
-            { (1, 0), (1, 0), (2, 1), (2, 1), (3, 0) },
-            { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
-            { (4, 1), (4, 1), (6, 0), (6, 1), (3, 1) },
-            { (1, 0), (1, 0), (2, 1), (6, 1), (2, 0) },
-            { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
-        };
+            Console.WriteLine(var.X.ToString(), var.Y.ToString());
+        }
+
+        //(int, int)[,] kingdomLandscapesArray = new (int, int)[5, 5]
+        //{
+        //    { (1, 0), (1, 0), (2, 1), (2, 1), (3, 0) },
+        //    { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
+        //    { (4, 1), (4, 1), (6, 0), (6, 1), (3, 1) },
+        //    { (1, 0), (1, 0), (2, 1), (6, 1), (2, 0) },
+        //    { (1, 0), (1, 0), (2, 0), (2, 0), (3, 1) },
+        //};
 
 
 
-        GridData kingdom1 = new GridData(kingdomLandscapesArray);
-        GridCalculator calculator = new GridCalculator(kingdom1);
-        calculator.CalculateResult();
+        //GridData kingdom1 = new GridData(kingdomLandscapesArray);
+        //GridCalculator calculator = new GridCalculator(kingdom1);
+        //calculator.CalculateResult();
 
     }
 }
