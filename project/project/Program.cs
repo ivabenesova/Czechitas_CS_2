@@ -13,16 +13,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        string relativePath = @"..\..\..\Resources\kingdomino.jpg";
+        string relativePath = @"..\..\..\Resources\kingdomino1.jpg";
 
         DetectGridAndCropIt detector = new DetectGridAndCropIt(relativePath);
 
         detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
 
-        foreach (var var in detector.SquareCorners)
-        {
-            Console.WriteLine(var.X.ToString(), var.Y.ToString());
-        }
+
+        CutGridToSquares cutter = new CutGridToSquares();
+        cutter.CutGridTo25Squares();
+
+       
 
         //(int, int)[,] kingdomLandscapesArray = new (int, int)[5, 5]
         //{

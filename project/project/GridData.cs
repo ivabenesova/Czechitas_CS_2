@@ -18,14 +18,14 @@ public class GridData
 
     private enum Landscapes
     {
-        none,
-        forest,
-        lake,
-        field,
-        swamp,
-        meadow,
-        mines,
-        castle
+        none, //0
+        forest, //1
+        lake, //2
+        field, //3
+        swamp,//4
+        meadow, //5
+        mines, //6
+        castle //7
     };
 
     

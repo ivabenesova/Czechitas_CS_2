@@ -25,7 +25,6 @@ namespace project
         public DetectGridAndCropIt(string filePath)
         {
             FilePath = Path.GetFullPath(Path.Combine(_basePath, filePath));
-            Console.WriteLine(FilePath);
             try
             {
                 Image = Cv2.ImRead(FilePath);
@@ -37,7 +36,6 @@ namespace project
                 Console.WriteLine("Can not load image: " + e.Message);
             }
 
-            
         }
 
 
@@ -48,19 +46,26 @@ namespace project
         //4. levy dolni
         public void UserAddsCornersOfGridAndCoordinatesAreSavedIntoList()
         {
+            const int desiredHeight = 600;
+            int originalWidth = Image.Width; // change to method
+            int originalHeight = Image.Height;
+            int newWidth = (int)((double)originalWidth / originalHeight * desiredHeight);
+
             Cv2.NamedWindow("Image");
+            
+            Cv2.ResizeWindow("Image", newWidth, desiredHeight); 
             Cv2.SetMouseCallback("Image", OnMouse); // adjust size on screen
             while (true)
             {
                 Mat tempImage = Image.Clone();
 
-                // Vykreslení bodů na obrázku
+                // draw image
                 foreach (var point2f in SquareCorners)
                 {
                     Point pointInt = new Point((int)point2f.X, (int)point2f.Y);
                     Cv2.Circle(tempImage, pointInt, 5, new Scalar(0, 0, 255), 2);
                 }
-
+               
                 Cv2.ImShow("Image", tempImage);
                 int key = Cv2.WaitKey(20);
                 if (key == 27 || SquareCorners.Count == 4)// Esc ends program
@@ -101,28 +106,24 @@ namespace project
 
             Point2f[] TargetPoints = new Point2f[]
             {
-                new Point2f(0, 0),       // levý horní
-                new Point2f(300, 0),     // pravý horní
-                new Point2f(300, 300),   // pravý dolní
-                new Point2f(0, 300)      // levý dolní
+                new Point2f(0, 0),       // left upper
+                new Point2f(600, 0),     // right upper
+                new Point2f(600, 600),   // right lower
+                new Point2f(0, 600)      // left lower
             };
 
-            // Výpočet transformační matice
+            // Calculate transformation matrix
             Mat perspectiveMatrix = Cv2.GetPerspectiveTransform(pointsFromOriginalPic, TargetPoints);
 
-            // Aplikace perspektivní transformace
+            // Apply
             Mat transformedImage = new Mat();
-            Cv2.WarpPerspective(Image, transformedImage, perspectiveMatrix, new Size(300, 300));
+            Cv2.WarpPerspective(Image, transformedImage, perspectiveMatrix, new Size(600, 600));
 
-            // Uložení upraveného obrázku
+            // Show and Save transformed image
             Cv2.ImShow("transf", transformedImage );
             Cv2.WaitKey(0);
             Cv2.DestroyAllWindows();
-
             SaveImage(transformedImage, "result2.jpg");
-
-
-
         }
 
 

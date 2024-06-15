@@ -69,7 +69,6 @@ internal class ImageProcessing
 
     private void SaveImage(Mat imageToSave, string imageName)
     {   
-        
         string outputPath = Path.Combine(@"..\..\..\output_images\", imageName);
         string PathToSave = Path.GetFullPath(Path.Combine(_basePath, outputPath));
 
