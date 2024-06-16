@@ -13,17 +13,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        string relativePath = @"..\..\..\Resources\kingdomino1.jpg";
+        string nameOfFile = "kingdomino1.jpg";
+        Game newGame = new Game(nameOfFile);
 
-        DetectGridAndCropIt detector = new DetectGridAndCropIt(relativePath);
+        newGame.Run();
 
-        detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
+        //GridCropper detector = new GridCropper(relativePath);
+
+        //detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
 
 
-        CutGridToSquares cutter = new CutGridToSquares();
-        cutter.CutGridTo25Squares();
+        //CutGridToSquares cutter = new CutGridToSquares();
+        //cutter.CutGridTo25Squares();
 
-       
+
 
         //(int, int)[,] kingdomLandscapesArray = new (int, int)[5, 5]
         //{
