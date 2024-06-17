@@ -19,6 +19,7 @@ namespace project
         {
             GameGrid grid = new GameGrid();
             ImageProcessor processor = new ImageProcessor(ImageName);
+            processor.CropImage();
         }
     }
 }

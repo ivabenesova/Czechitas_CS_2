@@ -23,7 +23,7 @@ class Program
         //detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
 
 
-        //CutGridToSquares cutter = new CutGridToSquares();
+        //GridCutter cutter = new GridCutter();
         //cutter.CutGridTo25Squares();
 
 

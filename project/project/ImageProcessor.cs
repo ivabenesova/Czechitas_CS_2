@@ -18,11 +18,15 @@ namespace project
         public ImageProcessor(string imgName)
         {
             LoadImage(imgName);
+        }
+
+        public void CropImage()
+        {
             GridCropper cropper = new GridCropper(Image);
             cropper.CropGridInImage();
         }
 
-        public void LoadImage(string fileName)
+        private void LoadImage(string fileName)
         {
             string FolderPath = Path.Combine(_basePath, _inputImagesFolderPath);
             string FilePath = Path.GetFullPath(Path.Combine(FolderPath, fileName));
