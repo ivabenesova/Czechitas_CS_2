@@ -13,17 +13,17 @@ namespace project
 
         
         private string _basePath = AppDomain.CurrentDomain.BaseDirectory;
-        private string _inputImagesFolderPath = @"..\..\..\Resources\";
+        private string _inputImagesFolderPath = @"..\..\..\input_images\";
 
         public ImageProcessor(string imgName)
         {
             LoadImage(imgName);
         }
 
-        public void CropImage()
+        public Mat CropImage()
         {
-            GridCropper cropper = new GridCropper(Image);
-            cropper.CropGridInImage();
+            ImageCropper cropper = new ImageCropper(Image);
+            return cropper.CropGridInImage();
         }
 
         private void LoadImage(string fileName)

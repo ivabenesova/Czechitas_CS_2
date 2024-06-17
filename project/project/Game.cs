@@ -17,9 +17,21 @@ namespace project
 
         public void Run()
         {
-            GameGrid grid = new GameGrid();
             ImageProcessor processor = new ImageProcessor(ImageName);
-            processor.CropImage();
+            
+            GridProcessor cutter = new GridProcessor(processor.CropImage());
+
+            Tile[,] grid = cutter.CutGridTo25SquaresAndAsignLandscapeToThem();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.WriteLine($"{grid[i,j].Landscape} : {i}, {j}");
+                }
+                
+            }
+
         }
     }
 }

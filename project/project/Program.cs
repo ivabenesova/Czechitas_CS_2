@@ -13,17 +13,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        string nameOfFile = "kingdomino1.jpg";
+        string nameOfFile = "kingdomino3.jpg";
         Game newGame = new Game(nameOfFile);
 
         newGame.Run();
 
-        //GridCropper detector = new GridCropper(relativePath);
+        //ImageCropper detector = new ImageCropper(relativePath);
 
         //detector.UserAddsCornersOfGridAndCoordinatesAreSavedIntoList();
 
 
-        //GridCutter cutter = new GridCutter();
+        //GridProcessor cutter = new GridProcessor();
         //cutter.CutGridTo25Squares();
 
 

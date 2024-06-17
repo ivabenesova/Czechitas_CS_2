@@ -12,13 +12,13 @@ using Point = OpenCvSharp.Point;
 
 namespace project
 {
-    internal class GridCropper 
+    internal class ImageCropper 
     {
         private Mat _image;
 
         public Mat Image { get; set; }
 
-        public GridCropper(Mat imgToProcess)
+        public ImageCropper(Mat imgToProcess)
         {
             Image = imgToProcess;
         }
@@ -97,7 +97,7 @@ namespace project
             Mat transformedImage = new Mat();
             Cv2.WarpPerspective(Image, transformedImage, perspectiveMatrix, new Size(600, 600));
 
-            Cv2.ImShow("transf", transformedImage);    // později odstranit, pro kontrolu
+            Cv2.ImShow("Transformed Image", transformedImage);    // později odstranit, pro kontrolu
             Cv2.WaitKey(0);                             // později odstranit, pro kontrolu
             Cv2.DestroyAllWindows();
             return transformedImage;
