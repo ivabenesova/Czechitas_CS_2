@@ -17,10 +17,11 @@ namespace project
                 return GetLandscapeToTileFromItsColour();
             }
         }
+        public int CrownNum { set; get; }
+        public int x { set; get; }
+        public int y { set; get; }
 
-        public int x;
-        public int y;
-
+        
 
         private new Dictionary<string, Scalar[]> colorRanges = new Dictionary<string, Scalar[]>
         {
@@ -79,8 +80,6 @@ namespace project
                     Console.WriteLine($"Tile odpovídá barvě: {colorRange.Key}");
                     return colorRange.Key;
                 }
-
-                
             }
 
             return "unknown";

@@ -43,7 +43,7 @@ namespace project
                     newTile.Image = new Mat(Image, square);
                     newTile.x = x;
                     newTile.y = y;
-
+                    newTile.CrownNum = 1;
                     squaresArray[y,x] = newTile;
                 }
             }

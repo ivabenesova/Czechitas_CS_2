@@ -2,6 +2,8 @@ namespace project;
 
 public class GridData 
 {
+
+    // asi bude brzy useless
     public (int, int)[,] ResultGrid { get; set; }
 
     private const int MaxSize = 5;
