@@ -10,24 +10,17 @@ namespace project
 {
     internal class GridProcessor
     {
-        private Mat _image;
-
-        public Mat Image { get; set; }
-
         
-        public GridProcessor(Mat imgToCut)
+        public GridProcessor()
         {
-            Image = imgToCut;
         }
 
-        public Tile[,] CutGridTo25SquaresAndAsignLandscapeToThem()
+        public Tile[,] CutGridTo25SquaresAndAsignLandscapeToThem(Mat imgToCut)
         {
 
             Tile[,] squaresArray = new Tile[GameGrid.NumberOfSquaresOnSide, GameGrid.NumberOfSquaresOnSide];
-            int squareSide = Image.Height / GameGrid.NumberOfSquaresOnSide;
+            int squareSide = imgToCut.Height / GameGrid.NumberOfSquaresOnSide;
 
-            Console.WriteLine(Image.Height);
-            Console.WriteLine(Image.Width);
 
         for (int y = 0; y < GameGrid.NumberOfSquaresOnSide; y++)
             {
@@ -40,10 +33,12 @@ namespace project
 
                     Rect square = new Rect(startX, startY, squareSide, squareSide);
 
-                    newTile.Image = new Mat(Image, square);
+                    newTile.Image = new Mat(imgToCut, square);
                     newTile.x = x;
                     newTile.y = y;
                     newTile.CrownNum = 1;
+                    
+
                     squaresArray[y,x] = newTile;
                 }
             }

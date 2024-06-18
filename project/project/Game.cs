@@ -18,19 +18,16 @@ namespace project
         public void Run()
         {
             ImageProcessor processor = new ImageProcessor(ImageName);
-            
-            GridProcessor cutter = new GridProcessor(processor.CropImage());
 
-            Tile[,] grid = cutter.CutGridTo25SquaresAndAsignLandscapeToThem();
+            GridProcessor cutter = new GridProcessor();
 
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    Console.WriteLine($"{grid[i,j].Landscape} : {i}, {j}");
-                }
-                
-            }
+            GameGrid gameGrid = new GameGrid(cutter, processor.CropImage());
+
+            Tile.LandscapeEnum something = gameGrid.GridArray[0, 0].Landscape;
+            int someInt = (int)something;
+
+            gameGrid.CalculateResult();
+
 
         }
     }
